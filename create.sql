@@ -26,8 +26,8 @@ create table guest_customers (
 );
 create table registered_customers (
   cid integer,
-  username char(20),
-  password_hash char(256),
+  username char(20) not null,
+  password_hash char(256) not null,
   points integer default 0 not null,
   primary key (cid),
   foreign key (cid) references customers on delete cascade

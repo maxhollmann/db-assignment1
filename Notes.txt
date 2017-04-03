@@ -1,0 +1,13 @@
+Exercise 1
+==========
+We couldn't figure out how to do dotted underline text for weak entities, so we used italic font and normal underline instead.
+
+We made the following assumptions for things that were not completely clear from the specification:
+- The leader that creates a mission is also its supervisor.
+- The leader buys food his group as a whole, not for individual minions.
+- The 'eats' relation between minions and food might not be explicitly mentioned, but we thought it might be implicitly assumed, so added it.
+- When minions go to banana heaven, they are deleted from the database. The pets table should specify 'on delete cascade' on its reference to the minions table, so pets of deleted minions are removed as well.
+
+Things that can't be expressed via the ER diagram:
+- Whenever a leader purchases food, that purchase is tracked and older purchases by the same leader of the same type of food are removed. This could be automated via a trigger.
+- The head-minion of a mission is not also tracked in the participates_in relation.
